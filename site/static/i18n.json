@@ -1,0 +1,31 @@
+{
+    "en": {
+        "title": "About Me",
+        "mode": {
+            "dark": "🌙 Dark Mode",
+            "light": "☀️ Light Mode"
+        },
+        "info": {
+            "title": "Personal Information",
+            "name": {
+                "title": "Name",
+                "text": "Kevin Svitač"
+            },
+            "email": {
+                "title": "E-mail",
+                "text": "kevin@svit.ac"
+            },
+            "location": {
+                "title": "Location",
+                "text": "Slovakia"
+            }
+        },
+        "social": {
+            "title": "Social Media"
+        },
+        "skills": {
+            "title": "Skills"
+        },
+        "print": "Print CV"
+    }
+}

@@ -1,55 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
 
-        <link rel="stylesheet" href="./static/compiled.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="$t('title')"></title>
 
-        <title>SKevo</title>
-    </head>
-    <body>
-        <div class="relative flex flex-col justify-center min-h-screen py-6 overflow-hidden indigo-100 sm:py-12">
-            <div class="absolute inset-0 bg-gray-900 bg-center"></div>
+    <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
+    <script src="./static/i18n.js" defer></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
 
-            <div class="flex flex-col gap-6">
-                <div class="relative w-full px-6 py-4 text-indigo-200 bg-gray-800 shadow-xl shadow-black/25 md:max-w-screen-md md:mx-auto md:rounded-lg">
-                    <div class="max-w-md mx-auto space-y-8">
-                        <div class="flex flex-row items-center justify-center gap-6">
-                            <img class="w-12 h-12 rounded-full" src="https://s3.amazonaws.com/keybase_processed_uploads/1954f208c2c081339035690ff5092705_360_360.jpg">
-                            <div class="flex flex-col">
-                                <h1 class="flex flex-row items-center gap-1 text-lg font-bold"><span class="text-2xl font-bold text-gray-500">@</span> <span class="mt-1">SKevo</span></h1>
-                                <a href="mailto:&#107;&#101;&#118;&#105;&#110;&#064;&#115;&#118;&#105;&#116;&#046;&#097;&#099;" class="flex flex-row items-center gap-2 text-sm text-gray-500 transition-colors font-extralight hover:text-gray-400">
-                                    <i class="text-orange-500 fas fa-envelope"></i>
-                                    <span>&#107;&#101;&#118;&#105;&#110;&#064;&#115;&#118;&#105;&#116;&#046;&#097;&#099;</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+<body class="bg-white dark:bg-gray-900 text-black dark:text-white">
+    <div class="container mx-auto px-4 py-8">
+        <header class="flex justify-between items-center print:hidden">
+            <h1 x-text="$t('title')" class="text-4xl font-semibold"></h1>
+
+            <button @click="darkMode = !darkMode" class="bg-gray-300 dark:bg-gray-700 p-2 rounded">
+                <span x-text="$t('mode.dark')" x-show="!darkMode"></span>
+                <span x-text="$t('mode.light')" x-show="darkMode"></span>
+            </button>
+        </header>
+
+        <main class="mt-8">
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h2 x-text="$t('info.title')" class="text-3xl font-semibold mb-4"></h2>
+                    <ul>
+                        <li><b x-text="$t('info.name.title')"></b> <span x-text="$t('info.name.text')"></span></li>
+                        <li><b x-text="$t('info.email.title')"></b> <span x-text="$t('info.email.text')"></span></li>
+                        <li><b x-text="$t('info.location.title')"></b> <span x-text="$t('info.location.text')"></span></li>
+                    </ul>
                 </div>
-
-                <div class="relative w-full px-6 py-4 text-indigo-200 bg-gray-800 shadow-xl shadow-black/25 md:max-w-screen-md md:mx-auto md:rounded-lg">
-                    <div class="grid grid-cols-1 gap-4 mx-auto sm:grid-cols-2">
-                        <a href="#" class="text-gray-400 border-gray-500 hover:border-orange-500 transition-colors duration-500 border-[1px] p-2 rounded-lg">
-                            <div class="flex flex-row items-center justify-center gap-4"><i class="text-orange-500 fab fa-discord"></i> <span>Kevo#7590</span></div>
-                        </a>
-
-                        <a href="https://instagram.com/skevo_18" class="text-gray-400 border-gray-500 hover:border-orange-500 transition-colors duration-500 border-[1px] p-2 rounded-lg">
-                            <div class="flex flex-row items-center justify-center gap-4"><i class="text-lg text-orange-500 fab fa-instagram"></i> <span>skevo_18</span></div>
-                        </a>
-                        
-                        <a href="https://keybase.io/skevo" class="text-gray-400 border-gray-500 hover:border-orange-500 transition-colors duration-500 border-[1px] p-2 rounded-lg">
-                            <div class="flex flex-row items-center justify-center gap-4"><img src="https://keybase.io/images/icons/icon-keybase-logo-48.png" width="16px"> <span>skevo</span></div>
-                        </a>
-
-                        <!--<a href="https://blog.svit.ac" class="text-gray-400 border-gray-500 hover:border-orange-500 transition-colors duration-500 border-[1px] p-2 rounded-lg">
-                            <div class="flex flex-row items-center justify-center gap-4"><i class="text-lg text-orange-500 fas fa-blog"></i> <span>https://blog.svit.ac</span></div>
-                        </a>-->
-                    </div>
+                <div>
+                    <h2 x-text="$t('social.title')" class="text-3xl font-semibold mb-4"></h2>
+                    <ul>
+                        <li><a href="https://github.com/SKevo18" target="_blank" class="text-blue-600 dark:text-blue-400">GitHub</a></li>
+                        <li><a href="https://twitter.com/SKevo_18" target="_blank" class="text-blue-600 dark:text-blue-400">Twitter</a></li>
+                    </ul>
                 </div>
-            </div>
-        </div>  
-    </body>
+            </section>
+
+            <section class="mt-8">
+                <h2 x-text="$t(skills.title)" class="text-3xl font-semibold mb-4"></h2>
+                <ul class="grid grid-cols-2 gap-4">
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>Python</li>
+                    <li><a class="text-blue-600 dark:text-blue-400" href="https://yara.readthedocs.io/en/stable/">Yara</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="mt-8 print:hidden">
+            <button x-text="$t('print')" x-on:click="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded"></button>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        async function fetch_i18n() {
+            return await (await fetch("./static/i18n.json", {method: 'GET'})).json();
+        }
+
+        document.addEventListener('alpine-i18n:ready', async () => {
+            window.AlpineI18n.create(navigator.language.split('-', 1)[0], await fetch_i18n());
+            window.AlpineI18n.fallbackLocale = 'en';
+        });
+    </script>
+</body>
+
 </html>
