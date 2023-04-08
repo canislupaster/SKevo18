@@ -26,6 +26,35 @@
         "skills": {
             "title": "Skills"
         },
-        "print": "Print CV"
+        "print": "Print"
+    },
+    "sk": {
+        "title": "O mne",
+        "mode": {
+            "dark": "🌙 Tmavý režim",
+            "light": "☀️ Svetlý režim"
+        },
+        "info": {
+            "title": "Osobné Údaje",
+            "name": {
+                "title": "Meno",
+                "text": "Kevin Svitač"
+            },
+            "email": {
+                "title": "E-mail",
+                "text": "kevin@svit.ac"
+            },
+            "location": {
+                "title": "Krajina",
+                "text": "Slovensko"
+            }
+        },
+        "social": {
+            "title": "Sociálne Siete"
+        },
+        "skills": {
+            "title": "Zručnosti"
+        },
+        "print": "Vytlačiť"
     }
 }
