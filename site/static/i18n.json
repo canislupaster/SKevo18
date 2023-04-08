@@ -1,10 +1,6 @@
 {
     "en": {
         "title": "About Me",
-        "mode": {
-            "dark": "🌙 Dark Mode",
-            "light": "☀️ Light Mode"
-        },
         "info": {
             "title": "Personal Information",
             "name": {
@@ -30,10 +26,6 @@
     },
     "sk": {
         "title": "O mne",
-        "mode": {
-            "dark": "🌙 Tmavý režim",
-            "light": "☀️ Svetlý režim"
-        },
         "info": {
             "title": "Osobné Údaje",
             "name": {
