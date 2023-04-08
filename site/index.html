@@ -53,7 +53,7 @@
         </main>
 
         <footer class="mt-8 print:hidden">
-            <button x-text="$t('print')" x-on:click="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded"></button>
+            <button x-text="$t('print')" x-on:click="document.getElementsByTagName('html')[0].classList = ''; window.print()" class="bg-blue-600 text-white px-4 py-2 rounded"></button>
         </footer>
     </div>
 
