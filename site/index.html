@@ -9,12 +9,6 @@
     <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
     <script src="./static/i18n.js" defer></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
-
-    <script type="text/javascript">
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.getElementsByTagName('html')[0].classList = 'dark'
-        }
-    </script>
 </head>
 
 <body class="text-black bg-white dark:bg-gray-900 dark:text-white">
@@ -53,15 +47,28 @@
         </main>
 
         <footer class="mt-8 print:hidden">
-            <button x-text="$t('print')" x-on:click="document.getElementsByTagName('html')[0].classList = ''; window.print()" class="px-4 py-2 text-white bg-blue-600 rounded"></button>
+            <button x-text="$t('print')" x-on:click="print_page()" class="px-4 py-2 text-white bg-blue-600 rounded"></button>
         </footer>
     </div>
 
     <script type="text/javascript">
+        function dark_mode() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.getElementsByTagName('html')[0].classList = 'dark'
+            }
+        }
+
+        function print_page() {
+            document.getElementsByTagName('html')[0].classList = '';
+            window.print()
+            dark_mode()
+        }
+
         async function fetch_i18n() {
             return await (await fetch("./static/i18n.json", {method: 'GET'})).json();
         }
 
+        dark_mode()
         document.addEventListener('alpine-i18n:ready', async () => {
             window.AlpineI18n.create(navigator.language.split('-', 1)[0], await fetch_i18n());
             window.AlpineI18n.fallbackLocale = 'en';
