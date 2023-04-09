@@ -17,16 +17,16 @@
     </script>
 </head>
 
-<body class="bg-white print:bg-white print:text-black dark:bg-gray-900 text-black dark:text-white">
-    <div class="container mx-auto px-4 py-8">
-        <header class="flex justify-between items-center print:hidden">
+<body class="text-black bg-white dark:bg-gray-900 dark:text-white">
+    <div class="container px-4 py-8 mx-auto">
+        <header class="flex items-center justify-between print:hidden">
             <h1 x-text="$t('title')" class="text-4xl font-semibold"></h1>
         </header>
 
         <main class="mt-8">
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <section class="grid grid-cols-1 gap-8 md:grid-cols-2">
                 <div>
-                    <h2 x-text="$t('info.title')" class="text-3xl font-semibold mb-4"></h2>
+                    <h2 x-text="$t('info.title')" class="mb-4 text-3xl font-semibold"></h2>
                     <ul>
                         <li><b x-text="$t('info.name.title')"></b> <span x-text="$t('info.name.text')"></span></li>
                         <li><b x-text="$t('info.email.title')"></b> <span x-text="$t('info.email.text')"></span></li>
@@ -34,7 +34,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h2 x-text="$t('social.title')" class="text-3xl font-semibold mb-4"></h2>
+                    <h2 x-text="$t('social.title')" class="mb-4 text-3xl font-semibold"></h2>
                     <ul>
                         <li><a href="https://github.com/SKevo18" target="_blank" class="text-blue-600 dark:text-blue-400">GitHub</a></li>
                         <li><a href="https://twitter.com/SKevo_18" target="_blank" class="text-blue-600 dark:text-blue-400">Twitter</a></li>
@@ -43,7 +43,7 @@
             </section>
 
             <section class="mt-8">
-                <h2 x-text="$t('skills.title')" class="text-3xl font-semibold mb-4"></h2>
+                <h2 x-text="$t('skills.title')" class="mb-4 text-3xl font-semibold"></h2>
                 <ul class="grid grid-cols-2 gap-4">
                     <li>HTML, CSS, JavaScript</li>
                     <li>Python</li>
@@ -53,7 +53,7 @@
         </main>
 
         <footer class="mt-8 print:hidden">
-            <button x-text="$t('print')" x-on:click="document.getElementsByTagName('html')[0].classList = ''; window.print()" class="bg-blue-600 text-white px-4 py-2 rounded"></button>
+            <button x-text="$t('print')" x-on:click="document.getElementsByTagName('html')[0].classList = ''; window.print()" class="px-4 py-2 text-white bg-blue-600 rounded"></button>
         </footer>
     </div>
 
