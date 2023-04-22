@@ -34,23 +34,23 @@
 
             <ul class="grid grid-cols-2 text-gray-700" x-data="{ links: [
                 {
-                    icon: 'fas fa-envelope'
-                    text: '&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;'
+                    icon: 'fas fa-envelope',
+                    text: '&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;',
                     href: '&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;'
                 }
                 {
-                    icon: 'fab fa-github'
-                    text: 'GitHub'
+                    icon: 'fab fa-github',
+                    text: 'GitHub',
                     href: 'https://github.com/SKevo18'
                 },
                 {
-                    icon: 'fab fa-instagram'
-                    text: 'Instagram'
+                    icon: 'fab fa-instagram',
+                    text: 'Instagram',
                     href: 'https://instagram/skevo_18'
                 }
                 {
-                    icon: 'fab fa-discord'
-                    text: 'Kevo#7590'
+                    icon: 'fab fa-discord',
+                    text: 'Kevo#7590',
                     href: '#'
                 }
             ]}">
@@ -84,14 +84,16 @@
         }
 
 
-        const langJson = await fetchLangJson()
-        dark_mode()
+        document.addEventListener('DOMContentLoaded', async () => {
+            const langJson = await fetchLangJson()
+            dark_mode()
+        });
 
         document.addEventListener('alpine-i18n:ready', async () => {
             window.AlpineI18n.create(LANG, langJson)
         });
 
-        
+
         function print_page() {
             document.getElementsByTagName('html')[0].classList = '';
             window.print()
