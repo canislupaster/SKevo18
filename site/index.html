@@ -84,11 +84,11 @@
 
 
             document.addEventListener('DOMContentLoaded', async () => {
-                window.langJson = await fetchLangJson();
                 dark_mode();
             });
 
             document.addEventListener('alpine-i18n:ready', async () => {
+                window.langJson = await fetchLangJson();
                 window.AlpineI18n.create(LANG, window.langJson);
             });
 
