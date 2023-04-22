@@ -1,0 +1,26 @@
+{
+    "en": {
+        "title": "About Me",
+        "info": {
+            "title": "Personal Information",
+            "name": {
+                "title": "Name",
+                "text": "Kevin Svitač"
+            },
+            "email": {
+                "title": "E-mail"
+            },
+            "location": {
+                "title": "Location",
+                "text": "Slovakia"
+            }
+        },
+        "social": {
+            "title": "Social Media"
+        },
+        "skills": {
+            "title": "Skills"
+        },
+        "print": "Print"
+    }
+}

@@ -64,13 +64,11 @@
             dark_mode()
         }
 
-        async function fetch_i18n() {
-            return await (await fetch("./static/i18n.json", {method: 'GET'})).json();
-        }
+        const LANG = navigator.language.split('-', 1)[0]
 
         dark_mode()
         document.addEventListener('alpine-i18n:ready', async () => {
-            window.AlpineI18n.create(navigator.language.split('-', 1)[0], await fetch_i18n());
+            window.AlpineI18n.create(LANG, await (await (await fetch(`./static/i18n/${LANG}.json`, {method: 'GET'})).json()))
             window.AlpineI18n.fallbackLocale = 'en';
         });
     </script>
