@@ -1,105 +1,103 @@
 <!DOCTYPE html>
 <html lang="en" x-data>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title x-text="$t('title')"></title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title x-text="$t('title')"></title>
+        <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
+        <script src="./static/i18n.js" defer></script>
+        <script src="https://unpkg.com/alpinejs" defer></script>
+    </head>
 
-    <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
-    <script src="./static/i18n.js" defer></script>
-    <script src="https://unpkg.com/alpinejs" defer></script>
-</head>
+    <body class="bg-gray-100 dark:bg-gray-900 min-h-screen-wrapper">
+        <header class="text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
+            <div class="container py-4 mx-auto">
+                <h1 x-text="$t('info.name')"class="text-3xl font-semibold"></h1>
+                <p x-text="$t('info.position')" class="text-lg"></p>
+            </div>
+        </header>
 
-<body class="bg-gray-100 dark:bg-gray-900 min-h-screen-wrapper">
-    <header class="text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
-        <div class="container py-4 mx-auto">
-            <h1 x-text="$t('info.name')"class="text-3xl font-semibold"></h1>
-            <p x-text="$t('info.position')" class="text-lg"></p>
-        </div>
-    </header>
+        <main x-data="{ sections: window.langJson.main.sections }" class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
+            <template x-for="section in sections" :key="section.href">
+                <section>
+                    <h2 x-text="section.title" class="mb-4 text-2xl font-semibold"></h2>
+                    <p x-text="section.text" class="mb-4 text-gray-700"> </p>
 
-    <main x-data="{ sections: window.langJson.main.sections }" class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
-        <template x-for="section in sections" :key="section.href">
+                    <a x-bind:href="section.href" x-text="section.button" class="px-4 py-2 text-white bg-yellow-600 rounded hover:bg-yellow-700"></a>
+                </section>
+            </template>
+
             <section>
-                <h2 x-text="section.title" class="mb-4 text-2xl font-semibold"></h2>
-                <p x-text="section.text" class="mb-4 text-gray-700"> </p>
+                <h2 class="mb-4 text-xl font-semibold">Connect</h2>
 
-                <a x-bind:href="section.href" x-text="section.button" class="px-4 py-2 text-white bg-yellow-600 rounded hover:bg-yellow-700"></a>
+                <ul class="grid grid-cols-2 text-gray-700" x-data="{ links: [
+                    {
+                        icon: 'fas fa-envelope',
+                        text: '&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;',
+                        href: '&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;'
+                    },
+                    {
+                        icon: 'fab fa-github',
+                        text: 'GitHub',
+                        href: 'https://github.com/SKevo18'
+                    },
+                    {
+                        icon: 'fab fa-instagram',
+                        text: 'Instagram',
+                        href: 'https://instagram/skevo_18'
+                    },
+                    {
+                        icon: 'fab fa-discord',
+                        text: 'Kevo#7590',
+                        href: '#'
+                    }
+                ]}">
+                    <template x-for="link in links" :key="link.href">
+                        <li>
+                            <a x-bind:href="link.href" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-yellow-600">
+                                <i x-bind:class="link.icon"></i> <span x-html="link.text"></span>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
             </section>
-        </template>
+        </main>
+        
+        <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
+            <div class="container py-4 mx-auto">
+                <p x-html="$t('footer.text')"></p>
+            </div>
+        </footer>
 
-        <section>
-            <h2 class="mb-4 text-xl font-semibold">Connect</h2>
-
-            <ul class="grid grid-cols-2 text-gray-700" x-data="{ links: [
-                {
-                    icon: 'fas fa-envelope',
-                    text: '&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;',
-                    href: '&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;'
-                },
-                {
-                    icon: 'fab fa-github',
-                    text: 'GitHub',
-                    href: 'https://github.com/SKevo18'
-                },
-                {
-                    icon: 'fab fa-instagram',
-                    text: 'Instagram',
-                    href: 'https://instagram/skevo_18'
-                },
-                {
-                    icon: 'fab fa-discord',
-                    text: 'Kevo#7590',
-                    href: '#'
+        <script type="text/javascript">
+            function dark_mode() {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.getElementsByTagName('html')[0].classList = 'dark'
                 }
-            ]}">
-                <template x-for="link in links" :key="link.href">
-                    <li>
-                        <a x-bind:href="link.href" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-yellow-600">
-                            <i x-bind:class="link.icon"></i> <span x-html="link.text"></span>
-                        </a>
-                    </li>
-                </template>
-            </ul>
-        </section>
-    </main>
-    
-    <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
-        <div class="container py-4 mx-auto">
-            <p x-html="$t('footer.text')"></p>
-        </div>
-    </footer>
-
-    <script type="text/javascript">
-        function dark_mode() {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.getElementsByTagName('html')[0].classList = 'dark'
             }
-        }
 
-        async function fetchLangJson() {
-            const lang = navigator.language.split('-', 1)[0]
-            return await (await fetch(`./static/i18n/${lang}.json`, {method: 'GET'})).json()
-        }
-
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            window.langJson = await fetchLangJson();
-            dark_mode();
-        });
-
-        document.addEventListener('alpine-i18n:ready', async () => {
-            window.AlpineI18n.create(LANG, window.langJson);
-        });
+            async function fetchLangJson() {
+                const lang = navigator.language.split('-', 1)[0]
+                return await (await fetch(`./static/i18n/${lang}.json`, {method: 'GET'})).json()
+            }
 
 
-        function print_page() {
-            document.getElementsByTagName('html')[0].classList = '';
-            window.print()
-            dark_mode()
-        }
-    </script>
-</body>
+            document.addEventListener('DOMContentLoaded', async () => {
+                window.langJson = await fetchLangJson();
+                dark_mode();
+            });
 
+            document.addEventListener('alpine-i18n:ready', async () => {
+                window.AlpineI18n.create(LANG, window.langJson);
+            });
+
+
+            function print_page() {
+                document.getElementsByTagName('html')[0].classList = '';
+                window.print()
+                dark_mode()
+            }
+        </script>
+    </body>
 </html>
