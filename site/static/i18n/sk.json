@@ -1,26 +1,25 @@
 {
     "sk": {
-        "title": "O mne",
         "info": {
-            "title": "Osobné Údaje",
-            "name": {
-                "title": "Meno",
-                "text": "Kevin Svitač"
-            },
-            "email": {
-                "title": "E-mail"
-            },
-            "location": {
-                "title": "Krajina",
-                "text": "Slovensko"
-            }
+            "name": "Kevin Svitač",
+            "position": "Full-stack developer"
         },
-        "social": {
-            "title": "Sociálne Siete"
+        "main": {
+            "sections": [
+                {
+                    "title": "CV",
+                    "text": "Discover my professional journey and learn more about my experience, education, and skills.",
+                    "href": "/cv",
+                    "button": "Zobraziť CV"
+                },
+                {
+                    "title": "Blog",
+                    "text": "Read my thoughts on web development, technology, and other topics that interest me.",
+                    "href": "/blog",
+                    "button": "Visit Blog"
+                }
+            ]
         },
-        "skills": {
-            "title": "Zručnosti"
-        },
-        "print": "Vytlačiť"
+        "footer": "Copyright &copy; Kevin Svitač 2023."
     }
 }

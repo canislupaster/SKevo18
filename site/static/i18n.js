@@ -13,7 +13,6 @@
       },
       currentLocale: "",
       messages: {},
-      fallbackLocale: "",
       options: {},
       create(locale, messages, options) {
         this.messages = messages;
@@ -27,9 +26,7 @@
           if (!message)
             throw "";
         } catch {}
-        if (!message && this.fallbackLocale.length) {
-          message = name.split(".").reduce((o, i) => o[i], this.messages[this.fallbackLocale]);
-        } else if (!message) {
+        if (!message) {
           return this.options?.debug ? `???${name}` : name;
         }
         for (const key in vars) {
