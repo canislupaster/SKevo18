@@ -1,25 +1,23 @@
 {
-    "en": {
-        "info": {
-            "name": "Kevin Svitač",
-            "position": "Full-stack developer"
-        },
-        "main": {
-            "sections": [
-                {
-                    "title": "CV",
-                    "text": "Discover my professional journey and learn more about my experience, education, and skills.",
-                    "href": "/cv",
-                    "button": "View CV"
-                },
-                {
-                    "title": "Blog",
-                    "text": "Read my thoughts on web development, technology, and other topics that interest me.",
-                    "href": "/blog",
-                    "button": "Visit Blog"
-                }
-            ]
-        },
-        "footer": "Copyright &copy; Kevin Svitač 2023."
-    }
+    "info": {
+        "name": "Kevin Svitač",
+        "position": "Full-stack developer"
+    },
+    "main": {
+        "sections": [
+            {
+                "title": "CV",
+                "text": "Discover my professional journey and learn more about my experience, education, and skills.",
+                "href": "/cv",
+                "button": "View CV"
+            },
+            {
+                "title": "Blog",
+                "text": "Read my thoughts on web development, technology, and other topics that interest me.",
+                "href": "/blog",
+                "button": "Visit Blog"
+            }
+        ]
+    },
+    "footer": "Copyright &copy; Kevin Svitač 2023."
 }

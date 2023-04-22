@@ -19,7 +19,7 @@
         </div>
     </header>
 
-    <main x-data="{ sections: langJson.main.sections }" class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
+    <main x-data="{ sections: window.langJson.main.sections }" class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
         <template x-for="section in sections" :key="section.href">
             <section>
                 <h2 x-text="section.title" class="mb-4 text-2xl font-semibold"></h2>
@@ -85,12 +85,12 @@
 
 
         document.addEventListener('DOMContentLoaded', async () => {
-            const langJson = await fetchLangJson()
-            dark_mode()
+            window.langJson = await fetchLangJson();
+            dark_mode();
         });
 
         document.addEventListener('alpine-i18n:ready', async () => {
-            window.AlpineI18n.create(LANG, langJson)
+            window.AlpineI18n.create(LANG, window.langJson);
         });
 
 

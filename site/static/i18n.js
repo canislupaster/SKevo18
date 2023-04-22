@@ -22,9 +22,9 @@
       t(name, vars) {
         let message = "";
         try {
-          message = name.split(".").reduce((o, i) => o[i], this.messages[this.locale]);
+          message = name.split(".").reduce((o, i) => o[i], this.messages);
           if (!message)
-            throw "";
+            throw "No message found";
         } catch {}
         if (!message) {
           return this.options?.debug ? `???${name}` : name;
