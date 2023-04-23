@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.container {
+    padding-left: max(5%, 1rem);
+    padding-right: max(5%, 1rem);
+}
+
+.min-h-screen-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-grow-main {
+    flex-grow: 1;
+}
