@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="i18n">
+<html lang="en" x-data="i18n.json">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,8 +103,13 @@
                 dark_mode();
             });
 
-            document.addEventListener('alpine:init', async () => {
-                Alpine.data('i18n', await fetchLangJson())
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('i18n', () => ({
+                    async init() {
+                        this.json = await fetchLangJson()
+                    },
+                    json: {}
+                }))
             })
 
 
