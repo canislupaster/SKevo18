@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kevin Svitač</title>
+
+        <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
+        <script src="https://unpkg.com/alpinejs" defer></script>
+
+
+        <script>
+            function dark_mode() {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.getElementsByTagName('html')[0].classList = 'dark';
+                };
+            };
+
+            dark_mode();
+        </script>
+    </head>
+
+    <body x-data="i18n" class="bg-gray-100 dark:bg-gray-900">
+        <template x-if="t !== null">
+            <div class="min-h-screen-wrapper">
+                <header class="text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
+                    <div class="container py-4 mx-auto">
+                        <h1 x-text="t.info.name" class="text-3xl font-semibold"></h1>
+                        <p x-text="t.info.position" class="text-lg"></p>
+                    </div>
+                </header>
+
+                <main class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
+                    {% block content %}{% endblock content %}
+                </main>
+                
+                <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
+                    <div class="container py-4 mx-auto">
+                        <p x-html="t.footer"></p>
+                    </div>
+                </footer>
+            </div>
+        </template>
+
+        <script type="text/javascript">
+            async function fetchLangJson() {
+                const lang = navigator.language.split('-', 1)[0];
+                return await (await fetch(`./static/i18n/${lang}.json`, {method: 'GET'})).json();
+            };
+
+
+            window.addEventListener('alpine:init', () => {
+                Alpine.data('i18n', () => ({
+                    async init() {
+                        this.t = await fetchLangJson()
+                    },
+                    t: null
+                }))
+            })
+
+            window.addEventListener("beforeprint", () => {
+                document.getElementsByTagName('html')[0].classList = '';
+                dark_mode();
+            });
+        </script>
+    </body>
+</html>

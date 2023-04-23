@@ -34,17 +34,11 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'tailwind/package-lock.json'
 
-      - name: Compile Tailwind
+      - name: Compile Tailwind & Build Site
         run: |
           cd ./tailwind
           npm ci
           bash compile.sh
-
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: '[auto] Compile Tailwind'
-          add: 'site/static/*.css'
 
 
       - name: Upload artifact
