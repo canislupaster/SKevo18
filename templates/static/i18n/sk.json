@@ -71,12 +71,7 @@
         ],
         "contact": "Kontakt"
     },
-    "connect": [
-        {
-            "icon": "fas fa-envelope",
-            "text": "E-mail",
-            "href": "mailto:&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;"
-        },
+    "social": [
         {
             "icon": "fab fa-github",
             "text": "GitHub",
