@@ -21,7 +21,7 @@
     </head>
 
     <body x-data="i18n" class="bg-gray-100 dark:bg-gray-900 min-h-screen-wrapper">
-        <template x-if="t">
+        <template x-if="t !== null">
             <div>
                 <header class="text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
                     <div class="container py-4 mx-auto">
@@ -78,7 +78,7 @@
                 
                 <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
                     <div class="container py-4 mx-auto">
-                        <p x-html="t.footer.text"></p>
+                        <p x-html="t.footer"></p>
                     </div>
                 </footer>
             </div>
@@ -96,7 +96,7 @@
                     async init() {
                         this.t = await fetchLangJson()
                     },
-                    t: {}
+                    t: null
                 }))
             })
 
