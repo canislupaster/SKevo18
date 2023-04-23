@@ -2,103 +2,89 @@
 
 {% block content %}
 <section class="mb-8">
-    <h2 class="flex items-center mb-4 text-2xl font-semibold">
-        <i class="mr-2 fas fa-user"></i> <span>Profile</span>
+    <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
+        <i class="mr-2 fas fa-user"></i> <span x-text="t.cv.profile"></span>
     </h2>
-    <p class="text-gray-700">
-        Experienced Full Stack Developer with a demonstrated history of working in the software development industry. Skilled in JavaScript, React, Node.js, HTML, CSS, and responsive web design. Strong engineering professional with a Bachelor's degree in Computer Science.
-    </p>
+    <p x-text="t.cv.bio" class="text-gray-700 dark:text-gray-300"></p>
+</section>
+
+<section class="mb-8">
+    <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
+        <i class="mr-2 fas fa-briefcase"></i> <span x-text="t.cv.experience"></span>
+    </h2>
+
+    <template x-for="experience in t.cv.experiences" :key="experience.href">
+        <a x-bind:href="experience.href" class="mb-4">
+            <h3 x-text="experience.title" class="text-xl font-semibold"></h3>
+            <p x-text="experience.timespan" class="text-gray-600 dark:text-gray-400"></p>
+
+            <ul class="pl-5 list-disc">
+                <template x-for="task in experience.tasks">
+                    <li x-text="task"></li>
+                </template>
+            </ul>
+        </a>
+    </template>
+</section>
+
+<section class="mb-8">
+    <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
+        <i class="mr-2 fas fa-graduation-cap"></i> <span x-text="t.cv.education"></span>
+    </h2>
+
+    <template x-for="education in t.cv.educations" :key="education.title">
+        <div>
+            <h3 x-text="education.title" class="text-xl font-semibold"></h3>
+            <p class="text-gray-600 dark:text-gray-300"><span x-text="education.school"></span> - <span x-text="education.timespan"></span></p>
+        </div>
+    </template>
+</section>
+
+<section class="mb-8">
+    <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
+        <i class="mr-2 fas fa-tools"></i> <span x-text="t.cv.skill"></span>
+    </h2>
+
+    <template x-for="[category, skills] in Object.entries(t.cv.skills)" :key="category">
+        <div>
+            <h3 x-text="category" class="text-xl dark:text-white"></h3>
+
+            <ul class="grid grid-cols-2 gap-2" class="text-gray-800 dark:text-gray-200">
+                <template x-for="skill in skills">
+                    <li x-text="skill"></li>
+                </template>
+            </ul>
+        </div>
+    </template>
 </section>
 
 <section class="mb-8">
     <h2 class="flex items-center mb-4 text-2xl font-semibold">
-        <i class="mr-2 fas fa-briefcase"></i>Experience
+        <i class="mr-2 fas fa-project-diagram"></i> <span x-text="t.cv.project"></span>
     </h2>
-    <div class="mb-4">
-        <h3 class="text-xl font-semibold">Senior Full Stack Developer - XYZ Company</h3>
-        <p class="text-gray-600">January 2020 - Present</p>
-        <ul class="pl-5 list-disc">
-            <li>Developed and maintained web applications using React and Node.js.</li>
-            <li>Implemented responsive web designs using HTML, CSS, and Tailwind CSS.</li>
-            <li>Collaborated with cross-functional teams to deliver high-quality software.</li>
-        </ul>
-    </div>
 
-    <div>
-        <h3 class="text-xl font-semibold">Junior Full Stack Developer - ABC Company</h3>
-        <p class="text-gray-600">June 2017 - December 2019</p>
-        <ul class="pl-5 list-disc">
-            <li>Contributed to the development of web applications using JavaScript, HTML, and CSS.</li>
-            <li>Assisted in the design and implementation of RESTful APIs using Node.js and Express.</li>
-            <li>Participated in code reviews and collaborated with other team members to improve code quality.</li>
-        </ul>
-    </div>
-</section>
+    <template x-for="project in t.cv.projects" :key="project.href">
+        <div class="mb-4">
+            <h3 x-text="project.title" class="text-xl font-semibold"></h3>
+    
+            <p class="text-gray-600 dark:text-gray-400">
+                <a x-bind:href="project.href" x-text="project.href" target="_blank" rel="noopener noreferrer"></a>
+            </p>
 
-<section class="mb-8">
-<h2 class="flex items-center mb-4 text-2xl font-semibold">
-    <i class="mr-2 fas fa-graduation-cap"></i>Education
-</h2>
-<div>
-    <h3 class="text-xl font-semibold">Bachelor of Science in Computer Science</h3>
-    <p class="text-gray-600">University of Technology - 2013 - 2017</p>
-</div>
-</section>
-
-<section class="mb-8">
-<h2 class="flex items-center mb-4 text-2xl font-semibold">
-    <i class="mr-2 fas fa-tools"></i>Skills
-</h2>
-<ul class="grid grid-cols-2 gap-2">
-    <li>JavaScript</li>
-    <li>React</li>
-    <li>Node.js</li>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>Tailwind CSS</li>
-    <li>Git</li>
-    <li>RESTful APIs</li>
-    <li>Express</li>
-    <li>MySQL</li>
-    <li>PostgreSQL</li>
-</ul>
-</section>
-
-<section class="mb-8">
-<h2 class="flex items-center mb-4 text-2xl font-semibold">
-    <i class="mr-2 fas fa-project-diagram"></i>Projects
-</h2>
-<div class="mb-4">
-    <h3 class="text-xl font-semibold">Project 1</h3>
-    <p class="text-gray-600">
-    <a href="https://github.com/johndoe/project1" target="_blank" rel="noopener noreferrer">https://github.com/johndoe/project1</a>
-    </p>
-    <p class="text-gray-700">
-    An e-commerce web application built with React, Node.js, and PostgreSQL. Features include user authentication, product catalog, shopping cart, and secure checkout.
-    </p>
-</div>
-
-<div>
-    <h3 class="text-xl font-semibold">Project 2</h3>
-    <p class="text-gray-600">
-    <a href="https://github.com/johndoe/project2" target="_blank" rel="noopener noreferrer">https://github.com/johndoe/project2</a>
-    </p>
-    <p class="text-gray-700">
-    A social media platform built with React, Node.js, and MongoDB. Features include user authentication, profile management, real-time chat, and news feed.
-    </p>
-</div>
+            <p x-text="project.description" class="text-gray-700 dark:text-gray-300"></p>
+        </div>
+    </template>
 </section>
 
 <section>
     <h2 class="flex items-center mb-4 text-2xl font-semibold">
-        <i class="mr-2 fas fa-envelope"></i>Contact
+        <i class="mr-2 fas fa-envelope"></i> <span x-text="t.cv.contact"></span>
     </h2>
 
-    <ul class="text-gray-700">
-        <li>Email: <a href="mailto:johndoe@example.com">johndoe@example.com</a></li>
-        <li>Phone: +1 (123) 456-7890</li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/johndoe/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/johndoe/</a></li>
-        <li>GitHub: <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer">https://github.com/johndoe</a></li>
+    <ul class="text-gray-700 dark:text-gray-300">
+        <template x-for="link in t.connect" :key="link.href">
+            <li><span x-text="link.text"></span> <a x-bind:href="link.href" x-text="href" target="_blank" rel="noopener noreferrer"></a></li>
+        </template>
     </ul>
 </section>
 {% endblock content %}

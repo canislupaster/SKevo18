@@ -45,7 +45,13 @@
         <script type="text/javascript">
             async function fetchLangJson() {
                 const lang = navigator.language.split('-', 1)[0];
-                return await (await fetch(`./static/i18n/${lang}.json`, {method: 'GET'})).json();
+
+                response = await fetch(`/static/i18n/${lang}.json`, {method: 'GET'})
+                if (response.status != 200) {
+                    response = await fetch(`/static/i18n/en.json`, {method: 'GET'})
+                }
+
+                return await response.json();
             };
 
 

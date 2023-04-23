@@ -11,31 +11,10 @@
 </template>
 
 <section>
-    <h2 class="mb-4 text-xl font-semibold text-black dark:text-white">Connect</h2>
+    <h2 x-text="t.main.connect" class="mb-4 text-xl font-semibold text-black dark:text-white"></h2>
 
-    <ul class="grid grid-cols-2 text-gray-700 dark:text-gray-300" x-data="{ links: [
-        {
-            icon: 'fas fa-envelope',
-            text: '&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;',
-            href: '&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;'
-        },
-        {
-            icon: 'fab fa-github',
-            text: 'GitHub',
-            href: 'https://github.com/SKevo18'
-        },
-        {
-            icon: 'fab fa-instagram',
-            text: 'Instagram',
-            href: 'https://instagram/skevo_18'
-        },
-        {
-            icon: 'fab fa-discord',
-            text: 'Kevo#7590',
-            href: '#'
-        }
-    ]}">
-        <template x-for="link in links" :key="link.href">
+    <ul class="grid grid-cols-2 text-gray-700 dark:text-gray-300">
+        <template x-for="link in t.connect" :key="link.href">
             <li>
                 <a x-bind:href="link.href" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-400">
                     <i x-bind:class="link.icon"></i> <span x-html="link.text"></span>
