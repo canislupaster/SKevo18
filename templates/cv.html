@@ -34,7 +34,7 @@
 
     <template x-for="education in t.cv.educations" :key="education.title">
         <div>
-            <h3 x-text="education.title" class="text-xl font-semibold"></h3>
+            <h3 x-text="education.title" class="text-xl font-semibold text-black dark:text-white"></h3>
             <p class="text-gray-600 dark:text-gray-300"><span x-text="education.school"></span> - <span x-text="education.timespan"></span></p>
         </div>
     </template>
@@ -47,7 +47,7 @@
 
     <template x-for="[category, skills] in Object.entries(t.cv.skills)" :key="category">
         <div>
-            <h3 x-text="category" class="text-xl dark:text-white"></h3>
+            <h3 x-text="category" class="text-xl text-black dark:text-white"></h3>
 
             <ul class="grid grid-cols-2 gap-2" class="text-gray-800 dark:text-gray-200">
                 <template x-for="skill in skills">
@@ -59,7 +59,7 @@
 </section>
 
 <section class="mb-8">
-    <h2 class="flex items-center mb-4 text-2xl font-semibold">
+    <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
         <i class="mr-2 fas fa-project-diagram"></i> <span x-text="t.cv.project"></span>
     </h2>
 
@@ -83,7 +83,7 @@
 
     <ul class="text-gray-700 dark:text-gray-300">
         <template x-for="link in t.connect" :key="link.href">
-            <li><span x-text="link.text"></span> <a x-bind:href="link.href" x-text="href" target="_blank" rel="noopener noreferrer"></a></li>
+            <li><span x-text="link.text"></span> <a x-bind:href="link.href" x-text="link.href" target="_blank" rel="noopener noreferrer"></a></li>
         </template>
     </ul>
 </section>
