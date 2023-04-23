@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title x-text="i18n.json.info.name"></title>
+        <title x-text="t.info.name"></title>
 
         <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
         <script src="https://unpkg.com/alpinejs" defer></script>
@@ -23,13 +23,13 @@
     <body class="bg-gray-100 dark:bg-gray-900 min-h-screen-wrapper">
         <header class="text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
             <div class="container py-4 mx-auto">
-                <h1 x-text="i18n.json.info.name"class="text-3xl font-semibold"></h1>
-                <p x-text="i18n.json.info.position" class="text-lg"></p>
+                <h1 x-text="t.info.name"class="text-3xl font-semibold"></h1>
+                <p x-text="t.info.position" class="text-lg"></p>
             </div>
         </header>
 
         <main class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
-            <template x-for="section in i18n.json.main.sections" :key="section.href">
+            <template x-for="section in t.main.sections" :key="section.href">
                 <section>
                     <h2 x-text="section.title" class="mb-4 text-2xl font-semibold"></h2>
                     <p x-text="section.text" class="mb-4 text-gray-700"> </p>
@@ -76,7 +76,7 @@
         
         <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
             <div class="container py-4 mx-auto">
-                <p x-html="i18n.json.footer.text"></p>
+                <p x-html="t.footer.text"></p>
             </div>
         </footer>
 
@@ -90,9 +90,9 @@
             window.addEventListener('alpine:init', () => {
                 Alpine.data('i18n', () => ({
                     async init() {
-                        this.json = await fetchLangJson()
+                        this.t = await fetchLangJson()
                     },
-                    json: {}
+                    t: {}
                 }))
             })
 
