@@ -4,46 +4,46 @@
         "position": "Full-stack developer"
     },
     "main": {
-        "connect": "Connect",
+        "connect": "Spojiť sa",
         "sections": [
             {
-                "title": "CV",
+                "title": "Životopis",
                 "text": "Discover my professional journey and learn more about my experience, education, and skills.",
                 "href": "/cv",
-                "button": "View CV"
+                "button": "Zobraziť životopis"
             },
             {
                 "title": "Blog",
-                "text": "Read my thoughts on web development, technology, and other topics that interest me.",
-                "href": "/blog",
-                "button": "Visit Blog"
+                "text": "Prečitaj si niektoré z mojich článkov o témach, ktoré ma zaujali.",
+                "href": "https://blog.svit.ac",
+                "button": "Navštíviť blog"
             }
         ]
     },
     "cv": {
-        "profile": "Profile",
-        "bio": "A young student who likes to code and learn new things.",
-        "experience": "Experience",
+        "profile": "Profil",
+        "bio": "Mladý študent ktorý rád programuje a objavuje nové veci.",
+        "experience": "Skúsenosti",
         "experiences": [
             {
-                "title": "Part-time work - Sansec",
-                "timespan": "November 2022 - present",
+                "title": "Brigádnik - Sansec",
+                "timespan": "November 2022 - súčanosť",
                 "tasks": [
-                    "E-commerce malware analysis",
-                    "Tool development"
+                    "Analýza malvéru na internetových obchodoch",
+                    "Vývoj nástrojov pre prácu s malvérom"
                 ],
                 "href": "https://sansec.io"
             }
         ],
-        "education": "Education",
+        "education": "Vzdelanie",
         "educations": [
             {
-                "title": "Business Academy",
-                "school": "Business Academy Nitra, Slovakia",
+                "title": "Obchodná akadémia",
+                "school": "Obchodná Akadémia Nitra, Slovensko",
                 "timespan": "2019 - 2023"
             }
         ],
-        "skill": "Skills",
+        "skill": "Zručnosti",
         "skills": {
             "Frontend": [
                 "HTML",
@@ -61,15 +61,15 @@
                 "Yara"
             ]
         },
-        "project": "Projects",
+        "project": "Projekty",
         "projects": [
             {
                 "title": "FreeFlarum",
-                "description": "A service to host Flarum forums for free. Currently it hosts + 3,000 online forums; + 20,000 forums have been created since 2017!",
+                "description": "Služba ktorá poskytuje hosting zdarma pre Flarum internetové fóra. V súčanosti obsahuje viac ako 3,000 online fór, pričom od roku 2017 sa registrovalo viac ako 20,000 fór!",
                 "href": "https://freeflarum.com"
             }
         ],
-        "contact": "Contact"
+        "contact": "Kontakt"
     },
     "connect": [
         {

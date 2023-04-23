@@ -15,7 +15,7 @@
             {
                 "title": "Blog",
                 "text": "Read my thoughts on web development, technology, and other topics that interest me.",
-                "href": "/blog",
+                "href": "https://blog.svit.ac",
                 "button": "Visit Blog"
             }
         ]
