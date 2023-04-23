@@ -67,7 +67,7 @@
                         ]}">
                             <template x-for="link in links" :key="link.href">
                                 <li>
-                                    <a x-bind:href="link.href" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-yellow-600">
+                                    <a x-bind:href="link.href" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-400">
                                         <i x-bind:class="link.icon"></i> <span x-html="link.text"></span>
                                     </a>
                                 </li>
