@@ -1,25 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" x-data>
+<html lang="en" x-data="{ i18n: await fetchLangJson() }">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title x-text="$t('title')"></title>
+        <title x-text="i18n.info.name"></title>
 
         <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
-        <script src="./static/i18n.js" defer></script>
         <script src="https://unpkg.com/alpinejs" defer></script>
+
+        <style>
+            .container {
+              padding-left: max(5%, 1rem);
+              padding-right: max(5%, 1rem);
+            }
+
+            .min-h-screen-wrapper {
+              min-height: 100vh;
+              display: flex;
+              flex-direction: column;
+            }
+
+            .flex-grow-main {
+              flex-grow: 1;
+            }
+        </style>
     </head>
 
     <body class="bg-gray-100 dark:bg-gray-900 min-h-screen-wrapper">
         <header class="text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
             <div class="container py-4 mx-auto">
-                <h1 x-text="$t('info.name')"class="text-3xl font-semibold"></h1>
-                <p x-text="$t('info.position')" class="text-lg"></p>
+                <h1 x-text="i18n.info.name"class="text-3xl font-semibold"></h1>
+                <p x-text="i18n.info.position" class="text-lg"></p>
             </div>
         </header>
 
-        <main x-data="{ sections: window.langJson.main.sections }" class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
-            <template x-for="section in sections" :key="section.href">
+        <main class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
+            <template x-for="section in i18n.main.sections" :key="section.href">
                 <section>
                     <h2 x-text="section.title" class="mb-4 text-2xl font-semibold"></h2>
                     <p x-text="section.text" class="mb-4 text-gray-700"> </p>
@@ -66,38 +82,33 @@
         
         <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
             <div class="container py-4 mx-auto">
-                <p x-html="$t('footer.text')"></p>
+                <p x-html="i18n.footer.text"></p>
             </div>
         </footer>
 
         <script type="text/javascript">
             function dark_mode() {
                 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.getElementsByTagName('html')[0].classList = 'dark'
-                }
-            }
+                    document.getElementsByTagName('html')[0].classList = 'dark';
+                };
+            };
 
             async function fetchLangJson() {
-                const lang = navigator.language.split('-', 1)[0]
-                return await (await fetch(`./static/i18n/${lang}.json`, {method: 'GET'})).json()
-            }
+                const lang = navigator.language.split('-', 1)[0];
+                return await (await fetch(`./static/i18n/${lang}.json`, {method: 'GET'})).json();
+            };
 
 
             document.addEventListener('DOMContentLoaded', async () => {
                 dark_mode();
             });
 
-            document.addEventListener('alpine-i18n:ready', async () => {
-                window.langJson = await fetchLangJson();
-                window.AlpineI18n.create(LANG, window.langJson);
-            });
 
-
-            function print_page() {
+            document.addEventListener("beforeprint", () => {
                 document.getElementsByTagName('html')[0].classList = '';
-                window.print()
-                dark_mode()
-            }
+                window.print();
+                dark_mode();
+            });
         </script>
     </body>
 </html>
