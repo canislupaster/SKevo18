@@ -46,10 +46,10 @@
     </h2>
 
     <template x-for="[category, skills] in Object.entries(t.cv.skills)" :key="category">
-        <div>
+        <div class="mb-2">
             <h3 x-text="category" class="text-xl text-black dark:text-white"></h3>
 
-            <ul class="grid grid-cols-2 gap-2 text-gray-800 dark:text-gray-200">
+            <ul class="grid grid-cols-2 text-gray-800 dark:text-gray-200">
                 <template x-for="skill in skills">
                     <li x-text="skill"></li>
                 </template>
