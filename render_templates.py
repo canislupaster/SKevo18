@@ -12,10 +12,10 @@ OUTPUT_ROOT = ROOT_PATH / 'site'
 ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_ROOT))
 
 
-if TEMPLATES_ROOT.exists():
-    shutil.rmtree(TEMPLATES_ROOT)
+if OUTPUT_ROOT.exists():
+    shutil.rmtree(OUTPUT_ROOT)
 
-shutil.copytree(OUTPUT_ROOT, OUTPUT_ROOT)
+shutil.copytree(TEMPLATES_ROOT, OUTPUT_ROOT)
 
 
 for path in TEMPLATES_ROOT.rglob("*.html"):

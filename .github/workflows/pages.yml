@@ -6,9 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
   pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
@@ -19,6 +17,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,14 +27,28 @@ jobs:
         uses: actions/configure-pages@v2
 
 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
           cache: 'npm'
           cache-dependency-path: 'tailwind/package-lock.json'
 
-      - name: Compile Tailwind & Build Site
+
+      - name: Build site
         run: |
+          python3.11 render_templates.py
+
           cd ./tailwind
           npm ci
           bash compile.sh
