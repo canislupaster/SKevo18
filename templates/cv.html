@@ -18,7 +18,7 @@
             <h3 x-text="experience.title" class="text-xl font-semibold text-black dark:text-white"></h3>
             <p x-text="experience.timespan" class="text-gray-600 dark:text-gray-400"></p>
 
-            <ul class="pl-5 list-disc text-gray-700 dark:text-gray-300">
+            <ul class="pl-5 text-gray-700 list-disc dark:text-gray-300">
                 <template x-for="task in experience.tasks">
                     <li x-text="task"></li>
                 </template>
@@ -83,7 +83,7 @@
 
     <ul class="text-gray-700 dark:text-gray-300">
         <template x-for="link in t.connect" :key="link.href">
-            <li><span x-text="link.text"></span> <a x-bind:href="link.href" x-html="link.href" target="_blank" rel="noopener noreferrer"></a></li>
+            <li><a x-bind:href="link.href" x-html="link.text" target="_blank" rel="noopener noreferrer"></a></li>
         </template>
     </ul>
 </section>
