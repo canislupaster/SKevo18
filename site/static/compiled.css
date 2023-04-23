@@ -556,8 +556,16 @@ video {
   margin-top: 2rem;
 }
 
+.flex {
+  display: flex;
+}
+
 .grid {
   display: grid;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
 
 .grid-cols-1 {
