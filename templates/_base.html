@@ -64,8 +64,10 @@
                 }))
             })
 
-            window.addEventListener("beforeprint", () => {
+            window.addEventListener("beforeprint", (event) => {
+                event.preventDefault();
                 document.getElementsByTagName('html')[0].classList = '';
+                window.print();
                 dark_mode();
             });
         </script>
