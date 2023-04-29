@@ -1,46 +1,56 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<section class="mb-8">
+<article class="mb-8" itemscope itemtype="http://schema.org/Person">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
         <i class="mr-2 fas fa-user"></i> <span x-text="t.cv.profile"></span>
     </h2>
-    <p x-text="t.cv.bio" class="text-gray-700 dark:text-gray-300"></p>
-</section>
 
-<section class="mb-8">
-    <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-briefcase"></i> <span x-text="t.cv.experience"></span>
-    </h2>
+    <p x-text="t.cv.bio" class="text-gray-700 dark:text-gray-300" itemprop="description"></p>
+</article>
 
-    <template x-for="experience in t.cv.experiences" :key="experience.href">
-        <a x-bind:href="experience.href" class="mb-4">
-            <h3 x-text="experience.title" class="text-xl font-semibold text-black dark:text-white"></h3>
-            <p x-text="experience.timespan" class="text-gray-600 dark:text-gray-400"></p>
-
-            <ul class="pl-5 text-gray-700 list-disc dark:text-gray-300">
-                <template x-for="task in experience.tasks">
-                    <li x-text="task"></li>
-                </template>
-            </ul>
-        </a>
-    </template>
-</section>
-
-<section class="mb-8">
+<article class="mb-8" itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationEvent">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
         <i class="mr-2 fas fa-graduation-cap"></i> <span x-text="t.cv.education"></span>
     </h2>
 
     <template x-for="education in t.cv.educations" :key="education.title">
         <div>
-            <h3 x-text="education.title" class="text-xl font-semibold text-black dark:text-white"></h3>
-            <p class="text-gray-600 dark:text-gray-300"><span x-text="education.school"></span> - <span x-text="education.timespan"></span></p>
+            <h3 x-text="education.title" class="text-xl font-semibold text-black dark:text-white" itemprop="name"></h3>
+            <p>
+                <span x-text="education.startDate" itemprop="startDate"></span> - <span x-text="education.endDate" itemprop="endDate"></span>
+            </p>
+
+            <div itemprop="affiliatedOrganization" itemscope itemtype="http://schema.org/EducationalOrganization">
+                <p class="text-gray-600 dark:text-gray-300" x-text="education.school" itemprop="name"></p>
+                <p class="text-gray-600 dark:text-gray-300" x-text="education.href" itemprop="url"></p>
+            </div>
         </div>
     </template>
-</section>
+</article>
 
-<section class="mb-8">
+<article class="mb-8" itemprop="worksFor" itemscope itemtype="http://schema.org/WorkExperience">
+    <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
+        <i class="mr-2 fas fa-briefcase"></i> <span x-text="t.cv.experience"></span>
+    </h2>
+
+    <template x-for="experience in t.cv.experiences" :key="experience.href">
+        <a x-bind:href="experience.href" class="mb-4">
+            <h3 x-text="experience.title" class="text-xl font-semibold text-black dark:text-white" itemprop="name"></h3>
+            <p class="text-gray-600 dark:text-gray-400">
+                <span x-text="experience.startDate" itemprop="startDate"></span> - <span x-text="experience.endDate" itemprop="endDate"></span>
+            </p>
+
+            <ul class="pl-5 text-gray-700 list-disc dark:text-gray-300">
+                <template x-for="task in experience.tasks">
+                    <li x-text="task" itemprop="description"></li>
+                </template>
+            </ul>
+        </a>
+    </template>
+</article>
+
+<article class="mb-8">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
         <i class="mr-2 fas fa-tools"></i> <span x-text="t.cv.skill"></span>
     </h2>
@@ -49,40 +59,40 @@
         <div class="mb-2">
             <h3 x-text="category" class="text-xl text-black dark:text-white"></h3>
 
-            <ul class="flex flex-col text-gray-800 dark:text-gray-200">
+            <ul class="flex flex-col text-gray-800 dark:text-gray-200" itemscope itemtype="https://schema.org/Person">
                 <template x-for="skill in skills">
-                    <li x-text="skill"></li>
+                    <li x-text="skill" itemprop="knowsAbout"></li>
                 </template>
             </ul>
         </div>
     </template>
-</section>
+</article>
 
-<section class="mb-8">
+<article class="mb-8" itemscope itemtype="https://schema.org/SoftwareApplication">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
         <i class="mr-2 fas fa-project-diagram"></i> <span x-text="t.cv.project"></span>
     </h2>
 
     <template x-for="project in t.cv.projects" :key="project.href">
         <div class="mb-4">
-            <h3 x-text="project.title" class="text-xl font-semibold text-black dark:text-white"></h3>
+            <h3 x-text="project.title" class="text-xl font-semibold text-black dark:text-white" itemprop="name"></h3>
     
             <p class="text-gray-600 dark:text-gray-400">
-                <a x-bind:href="project.href" x-text="project.href" target="_blank" rel="noopener noreferrer"></a>
+                <a x-bind:href="project.href" x-text="project.href" target="_blank" rel="noopener noreferrer" itemprop="url"></a>
             </p>
 
-            <p x-text="project.description" class="text-gray-700 dark:text-gray-300"></p>
+            <p x-text="project.description" class="text-gray-700 dark:text-gray-300" itemprop="description"></p>
         </div>
     </template>
-</section>
+</article>
 
-<section>
+<article itemscope itemtype="http://schema.org/Person">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
         <i class="mr-2 fas fa-envelope"></i> <span x-text="t.cv.contact"></span>
     </h2>
 
     <ul class="text-gray-700 dark:text-gray-300">
-        <li><a x-text="atob('a2V2aW5Ac3ZpdC5hYw==')" x-bind:href="`mailto:${atob('a2V2aW5Ac3ZpdC5hYw==')}`" target="_blank"></a></li>
+        <li><a x-text="atob('a2V2aW5Ac3ZpdC5hYw==')" x-bind:href="`mailto:${atob('a2V2aW5Ac3ZpdC5hYw==')}`" target="_blank" itemprop="email"></a></li>
     </ul>
-</section>
+</article>
 {% endblock content %}

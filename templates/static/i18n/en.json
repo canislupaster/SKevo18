@@ -27,7 +27,8 @@
         "experiences": [
             {
                 "title": "Part-time work - Sansec",
-                "timespan": "November 2022 - present",
+                "startDate": "2022",
+                "endDate": "...",
                 "tasks": [
                     "Conduct malware analysis of e-commerce websites and develop tools to aid in analysis.",
                     "Collaborate with team members to improve existing tools and processes."
@@ -40,7 +41,9 @@
             {
                 "title": "Business Academy",
                 "school": "Business Academy Nitra, Slovakia",
-                "timespan": "2019 - 2023"
+                "startDate": "2019",
+                "endDate": "2023",
+                "href": "https://oanitra.edupage.org"
             }
         ],
         "skill": "Skills",
