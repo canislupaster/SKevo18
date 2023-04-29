@@ -50,7 +50,7 @@
     </template>
 </article>
 
-<article class="mb-8">
+<article class="mb-8" itemscope itemtype="https://schema.org/Person">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
         <i class="mr-2 fas fa-tools"></i> <span x-text="t.cv.skills_title"></span>
     </h2>
@@ -76,7 +76,7 @@
         <div class="mb-2">
             <h3 class="text-xl text-black dark:text-white">{{ category }}</h3>
 
-            <ul class="flex flex-col text-gray-800 dark:text-gray-200" itemscope itemtype="https://schema.org/Person">
+            <ul class="flex flex-col text-gray-800 dark:text-gray-200" >
                 {% for skill in skills %}
                     <li itemprop="knowsAbout">{{ skill }}</li>
                 {% endfor %}
