@@ -13,14 +13,31 @@
 <section itemscope itemtype="http://schema.org/Person">
     <h2 x-text="t.main.connect" class="mb-4 text-xl font-semibold text-black dark:text-white"></h2>
 
+    {% set links = [
+        {
+            "icon": "fab fa-github",
+            "text": "GitHub",
+            "href": "https://github.com/SKevo18"
+        },
+        {
+            "icon": "fab fa-instagram",
+            "text": "Instagram",
+            "href": "https://instagram.com/skevo_18"
+        },
+        {
+            "icon": "fab fa-discord",
+            "text": "Discord: Kevo#7590",
+            "href": "#"
+        }
+    ] %}
     <ul class="grid grid-cols-2 text-gray-700 dark:text-gray-300">
-        <template x-for="link in t.social" :key="link.href">
+        {% for link in links %}
             <li>
-                <a itemprop="sameAs" x-bind:href="link.href" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-400">
-                    <i x-bind:class="link.icon"></i> <span x-html="link.text"></span>
+                <a itemprop="sameAs" href="{{ link['href'] }}" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-400">
+                    <i class="{{ link['icon'] }}"></i> <span>{{ link['text'] }}</span>
                 </a>
             </li>
-        </template>
+        {% endfor %}
     </ul>
 </section>
 {% endblock content %}

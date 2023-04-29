@@ -11,7 +11,7 @@
 
 <article class="mb-8" itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationEvent">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-graduation-cap"></i> <span x-text="t.cv.education"></span>
+        <i class="mr-2 fas fa-graduation-cap"></i> <span x-text="t.cv.educations_title"></span>
     </h2>
 
     <template x-for="education in t.cv.educations" :key="education.title">
@@ -31,7 +31,7 @@
 
 <article class="mb-8" itemprop="worksFor" itemscope itemtype="http://schema.org/WorkExperience">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-briefcase"></i> <span x-text="t.cv.experience"></span>
+        <i class="mr-2 fas fa-briefcase"></i> <span x-text="t.cv.experiences_title"></span>
     </h2>
 
     <template x-for="experience in t.cv.experiences" :key="experience.href">
@@ -52,25 +52,43 @@
 
 <article class="mb-8">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-tools"></i> <span x-text="t.cv.skill"></span>
+        <i class="mr-2 fas fa-tools"></i> <span x-text="t.cv.skills_title"></span>
     </h2>
 
-    <template x-for="[category, skills] in Object.entries(t.cv.skills)" :key="category">
+    {% set skills_data = {
+        "Frontend": [
+            "HTML",
+            "CSS (Tailwind)",
+            "JavaScript (Alpine.js)"
+        ],
+        "Backend": [
+            "Python"
+        ],
+        "Ubuntu": [
+            "PHP-FPM",
+            "MariaDB (MySQL)"
+        ],
+        "Other": [
+            "Yara"
+        ]
+    } %}
+    {% for category, skills in skills_data.items() %}
         <div class="mb-2">
-            <h3 x-text="category" class="text-xl text-black dark:text-white"></h3>
+            <h3 class="text-xl text-black dark:text-white">{{ category }}</h3>
 
             <ul class="flex flex-col text-gray-800 dark:text-gray-200" itemscope itemtype="https://schema.org/Person">
-                <template x-for="skill in skills">
-                    <li x-text="skill" itemprop="knowsAbout"></li>
-                </template>
+                {% for skill in skills %}
+                    <li itemprop="knowsAbout">{{ skill }}</li>
+                {% endfor %}
             </ul>
         </div>
     </template>
+    {% endfor %}
 </article>
 
 <article class="mb-8" itemscope itemtype="https://schema.org/SoftwareApplication">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-project-diagram"></i> <span x-text="t.cv.project"></span>
+        <i class="mr-2 fas fa-project-diagram"></i> <span x-text="t.cv.projects_title"></span>
     </h2>
 
     <template x-for="project in t.cv.projects" :key="project.href">

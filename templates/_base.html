@@ -21,23 +21,23 @@
         </script>
     </head>
 
-    <body x-data="i18n" class="bg-gray-100 dark:bg-gray-900">
+    <body class="bg-gray-100 dark:bg-gray-900">
         <template x-if="t !== null">
             <div class="min-h-screen-wrapper">
                 <header class="text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
                     <div class="container py-4 mx-auto" itemscope itemtype="http://schema.org/Person">
-                        <h1 x-text="t.info.name" class="text-3xl font-semibold" itemprop="name"></h1>
-                        <p x-text="t.info.position" class="text-lg" itemprop="jobTitle"></p>
+                        <h1 class="text-3xl font-semibold" itemprop="name">Kevin Svitač</h1>
+                        <p class="text-lg" itemprop="jobTitle">Full-stack developer</p>
                     </div>
                 </header>
 
-                <main class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
+                <main x-data="i18n" class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
                     {% block content %}{% endblock content %}
                 </main>
                 
                 <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
                     <div class="container py-4 mx-auto">
-                        <p x-html="t.footer"></p>
+                        <p class="text-center">&copy; 2023, Kevin Svitač (AKA. SKevo)</p>
                     </div>
                 </footer>
             </div>

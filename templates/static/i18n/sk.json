@@ -1,8 +1,4 @@
 {
-    "info": {
-        "name": "Kevin Svitač",
-        "position": "Full-stack developer"
-    },
     "main": {
         "connect": "Spojiť sa",
         "sections": [
@@ -23,7 +19,7 @@
     "cv": {
         "profile": "Profil",
         "bio": "Mladý študent ktorý rád programuje a objavuje nové veci.",
-        "experience": "Skúsenosti",
+        "experiences_title": "Skúsenosti",
         "experiences": [
             {
                 "title": "Brigádnik - Sansec",
@@ -36,7 +32,7 @@
                 "href": "https://sansec.io"
             }
         ],
-        "education": "Vzdelanie",
+        "educations_title": "Vzdelanie",
         "educations": [
             {
                 "title": "Obchodná akadémia",
@@ -46,25 +42,8 @@
                 "href": "https://oanitra.edupage.org"
             }
         ],
-        "skill": "Zručnosti",
-        "skills": {
-            "Frontend": [
-                "HTML",
-                "CSS (Tailwind)",
-                "JavaScript (Alpine.js)"
-            ],
-            "Backend": [
-                "Python"
-            ],
-            "Ubuntu": [
-                "PHP-FPM",
-                "MariaDB (MySQL)"
-            ],
-            "Other": [
-                "Yara"
-            ]
-        },
-        "project": "Projekty",
+        "skills_title": "Zručnosti",
+        "projects_title": "Projekty",
         "projects": [
             {
                 "title": "FreeFlarum",
@@ -73,23 +52,5 @@
             }
         ],
         "contact": "Kontakt"
-    },
-    "social": [
-        {
-            "icon": "fab fa-github",
-            "text": "GitHub",
-            "href": "https://github.com/SKevo18"
-        },
-        {
-            "icon": "fab fa-instagram",
-            "text": "Instagram",
-            "href": "https://instagram.com/skevo_18"
-        },
-        {
-            "icon": "fab fa-discord",
-            "text": "Discord: Kevo#7590",
-            "href": "#"
-        }
-    ],
-    "footer": "Copyright &copy; Kevin Svitač 2023."
+    }
 }

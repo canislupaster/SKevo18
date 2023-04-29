@@ -1,8 +1,4 @@
 {
-    "info": {
-        "name": "Kevin Svitač",
-        "position": "Full-stack developer"
-    },
     "main": {
         "connect": "Connect",
         "sections": [
@@ -23,7 +19,7 @@
     "cv": {
         "profile": "Profile",
         "bio": "A young student who likes to code and learn new things.",
-        "experience": "Experience",
+        "experiences_title": "Experience",
         "experiences": [
             {
                 "title": "Part-time work - Sansec",
@@ -36,7 +32,7 @@
                 "href": "https://sansec.io"
             }
         ],
-        "education": "Education",
+        "education_title": "Education",
         "educations": [
             {
                 "title": "Business Academy",
@@ -46,25 +42,8 @@
                 "href": "https://oanitra.edupage.org"
             }
         ],
-        "skill": "Skills",
-        "skills": {
-            "Frontend": [
-                "HTML",
-                "CSS (Tailwind)",
-                "JavaScript (Alpine.js)"
-            ],
-            "Backend": [
-                "Python"
-            ],
-            "Ubuntu": [
-                "PHP-FPM",
-                "MariaDB (MySQL)"
-            ],
-            "Other": [
-                "Yara"
-            ]
-        },
-        "project": "Projects",
+        "skills_title": "Skills",
+        "projects_title": "Projects",
         "projects": [
             {
                 "title": "FreeFlarum",
@@ -73,23 +52,5 @@
             }
         ],
         "contact": "Contact"
-    },
-    "social": [
-        {
-            "icon": "fab fa-github",
-            "text": "GitHub",
-            "href": "https://github.com/SKevo18"
-        },
-        {
-            "icon": "fab fa-instagram",
-            "text": "Instagram",
-            "href": "https://instagram.com/skevo_18"
-        },
-        {
-            "icon": "fab fa-discord",
-            "text": "Discord: Kevo#7590",
-            "href": "#"
-        }
-    ],
-    "footer": "Copyright &copy; Kevin Svitač 2023."
+    }
 }
