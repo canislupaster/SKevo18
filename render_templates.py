@@ -9,7 +9,7 @@ ROOT_PATH = Path(__file__).parent.absolute()
 TEMPLATES_ROOT = ROOT_PATH / 'templates'
 OUTPUT_ROOT = ROOT_PATH / 'site'
 
-ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_ROOT))
+ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_ROOT), keep_trailing_newline=True)
 
 
 if OUTPUT_ROOT.exists():
@@ -23,7 +23,7 @@ for path in TEMPLATES_ROOT.rglob("*.html"):
     rendered_html = template.render()
 
     output_path = OUTPUT_ROOT / path.name
-    output_path.write_bytes(rendered_html.encode('utf-8'))
+    output_path.write_bytes(rendered_html.lstrip().encode('utf-8'))
 
 
 for path in OUTPUT_ROOT.rglob("_*.*"):
