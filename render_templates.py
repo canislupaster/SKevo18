@@ -23,7 +23,7 @@ for path in TEMPLATES_ROOT.rglob("*.html"):
     rendered_html = template.render()
 
     output_path = OUTPUT_ROOT / path.name
-    output_path.write_text(rendered_html)
+    output_path.write_bytes(rendered_html.encode('utf-8'))
 
 
 for path in OUTPUT_ROOT.rglob("_*.*"):
