@@ -1,16 +1,16 @@
-{% set title = title|default("Kevin Svitač") %}
-{% set description = description|default("Stránka Kevina Svitača (SKevo).") %}
+{% set title = title|default(t.head.page_title) %}
+{% set description = description|default(t.head.page_description) %}
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ current_locale }}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ description }}">
         <title>{{ title }}</title>
 
-        <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="/static/compiled.min.css" referrerpolicy="no-referrer"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
         <script>
@@ -38,8 +38,18 @@
             </main>
             
             <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
-                <div class="container py-4 mx-auto">
+                <div class="container py-4 mx-auto mb-4">
                     <p class="text-center">&copy; 2023, Kevin Svitač (AKA. SKevo)</p>
+                </div>
+
+                <div class="mx-auto">
+                    <div class="flex flex-row items-center justify-center">
+                        {% for country_code, language_code in available_locales.items() %}
+                            <a href="#" onclick="javascript:changeLocale('{{ language_code }}')">
+                                <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/{{ country_code }}.svg" alt="{{ language_code|upper }} language">
+                            </a>
+                        {% endfor %}
+                    </div>
                 </div>
             </footer>
         </div>
@@ -52,6 +62,16 @@
             window.addEventListener('afterprint', () => {
                 dark_mode();
             });
+
+
+            function changeLocale(new_language) {
+                const current_path = window.location.pathname;
+                const new_path = current_path.replace(/\/(en|sk)\//, '/' + new_language + '/');
+                window.location.href = new_path;
+            }
+
+            const preferred_language = window.navigator.language.split('-', 1)[0]
+            changeLocale(preferred_language)
         </script>
     </body>
 </html>

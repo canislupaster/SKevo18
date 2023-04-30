@@ -1,4 +1,8 @@
 {
+    "head": {
+        "page_title": "Kevin Svitač",
+        "page_description": "Kevin Svitač's website (SKevo)"
+    },
     "main": {
         "connect": "Connect",
         "sections": [
@@ -17,6 +21,10 @@
         ]
     },
     "cv": {
+        "head": {
+            "page_title": "CV",
+            "page_description": "Kevin Svitač's CV"
+        },
         "profile": "Profile",
         "bio": "A young student who likes to code and learn new things.",
         "experiences_title": "Experience",

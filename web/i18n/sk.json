@@ -1,4 +1,8 @@
 {
+    "head": {
+        "page_title": "Kevin Svitač",
+        "page_description": "Stránka Kevina Svitača (SKevo)"
+    },
     "main": {
         "connect": "Spojiť sa",
         "sections": [
@@ -17,6 +21,10 @@
         ]
     },
     "cv": {
+        "head": {
+            "page_title": "Životopis",
+            "page_description": "Životopis Kevina Svitača"
+        },
         "profile": "Profil",
         "bio": "Mladý študent ktorý rád programuje a objavuje nové veci.",
         "experiences_title": "Skúsenosti",

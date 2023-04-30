@@ -1,17 +1,17 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<template x-for="section in t.main.sections" :key="section.href">
+{% for section in t.main.sections %}
     <section>
-        <h2 x-text="section.title" class="mb-4 text-2xl font-semibold dark:text-white"></h2>
-        <p x-text="section.text" class="mb-4 text-gray-700 dark:text-gray-300"> </p>
+        <h2 class="mb-4 text-2xl font-semibold dark:text-white">{{ section.title }}/h2>
+        <p class="mb-4 text-gray-700 dark:text-gray-300">{{ section.text }}</p>
 
-        <a x-bind:href="section.href" x-text="section.button" class="px-4 py-2 text-white bg-yellow-600 rounded hover:bg-yellow-700"></a>
+        <a href="{{ section.href }}" class="px-4 py-2 text-white bg-yellow-600 rounded hover:bg-yellow-700">{{ section.button }}</a>
     </section>
-</template>
+{% endfor %}
 
 <section itemscope itemtype="http://schema.org/Person">
-    <h2 x-text="t.main.connect" class="mb-4 text-xl font-semibold text-black dark:text-white"></h2>
+    <h2 class="mb-4 text-xl font-semibold text-black dark:text-white">{{ t.main.connect }}</h2>
 
     {% set links = [
         {

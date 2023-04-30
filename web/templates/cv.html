@@ -1,62 +1,62 @@
 {% extends "_base.html" %}
 
-{% set title = "Životopis" %}
-{% set description = "Životopis Kevina Svitača" %}
+{% set title = t.cv.head.page_title %}
+{% set description = t.cv.head.page_description %}
 
 
 {% block content %}
 <article class="mb-8" itemscope itemtype="http://schema.org/Person">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-user"></i> <span x-text="t.cv.profile"></span>
+        <i class="mr-2 fas fa-user"></i> <span>{{ t.cv.profile }}</span>
     </h2>
 
-    <p x-text="t.cv.bio" class="text-gray-700 dark:text-gray-300" itemprop="description"></p>
+    <p class="text-gray-700 dark:text-gray-300" itemprop="description">{{ t.cv.bio }}</p>
 </article>
 
 <article class="mb-8" itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationEvent">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-graduation-cap"></i> <span x-text="t.cv.educations_title"></span>
+        <i class="mr-2 fas fa-graduation-cap"></i> <span>{{ t.cv.educations_title }}</span>
     </h2>
 
-    <template x-for="education in t.cv.educations" :key="education.title">
+    {% for education in t.cv.educations %}
         <div>
-            <h3 x-text="education.title" class="text-xl font-semibold text-black dark:text-white" itemprop="name"></h3>
+            <h3 class="text-xl font-semibold text-black dark:text-white" itemprop="name">{{ education.title }}</h3>
             <p>
-                <span x-text="education.startDate" itemprop="startDate"></span> - <span x-text="education.endDate" itemprop="endDate"></span>
+                <span itemprop="startDate">{{ education.startDate }}</span> - <span itemprop="endDate">{{ education.endDate }}</span>
             </p>
 
             <div itemscope itemtype="http://schema.org/EducationalOrganization">
-                <p class="text-gray-600 dark:text-gray-300" x-text="education.school" itemprop="name"></p>
-                <p class="text-gray-600 dark:text-gray-300" x-text="education.href" itemprop="url"></p>
+                <p class="text-gray-600 dark:text-gray-300" itemprop="name">{{ education.school }}</p>
+                <a href="{{ education.href }}" class="text-gray-600 dark:text-gray-300" itemprop="url">{{ education.href }}</a>
             </div>
         </div>
-    </template>
+    {% endfor %}
 </article>
 
 <article class="mb-8" itemprop="worksFor" itemscope itemtype="http://schema.org/WorkExperience">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-briefcase"></i> <span x-text="t.cv.experiences_title"></span>
+        <i class="mr-2 fas fa-briefcase"></i> <span>{{ t.cv.experiences_title }}</span>
     </h2>
 
-    <template x-for="experience in t.cv.experiences" :key="experience.href">
-        <a x-bind:href="experience.href" class="mb-4">
-            <h3 x-text="experience.title" class="text-xl font-semibold text-black dark:text-white" itemprop="name"></h3>
+    {% for experience in t.cv.experiences %}
+        <a href="{{ experience.href }}" class="mb-4">
+            <h3 class="text-xl font-semibold text-black dark:text-white" itemprop="name">{{ experience.title }}</h3>
             <p class="text-gray-600 dark:text-gray-400">
-                <span x-text="experience.startDate" itemprop="startDate"></span> - <span x-text="experience.endDate" itemprop="endDate"></span>
+                <span itemprop="startDate">{{ experience.startDate }}</span> - <span itemprop="endDate">{{ experience.endDate }}</span>
             </p>
 
             <ul class="pl-5 text-gray-700 list-disc dark:text-gray-300">
-                <template x-for="task in experience.tasks">
-                    <li x-text="task" itemprop="description"></li>
-                </template>
+                {% for task in experience.tasks %}
+                    <li itemprop="description">{{ task }}</li>
+                {% endfor %}
             </ul>
         </a>
-    </template>
+    {% endfor %}
 </article>
 
 <article class="mb-8" itemscope itemtype="https://schema.org/Person">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-tools"></i> <span x-text="t.cv.skills_title"></span>
+        <i class="mr-2 fas fa-tools"></i> <span>{{ t.cv.skills_title }}</span>
     </h2>
 
     {% set skills_data = {
@@ -92,29 +92,29 @@
 
 <article class="mb-8" itemscope itemtype="https://schema.org/SoftwareApplication">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-project-diagram"></i> <span x-text="t.cv.projects_title"></span>
+        <i class="mr-2 fas fa-project-diagram"></i> <span>{{ t.cv.projects_title }}</span>
     </h2>
 
-    <template x-for="project in t.cv.projects" :key="project.href">
+    {% for project in t.cv.projects %}
         <div class="mb-4">
-            <h3 x-text="project.title" class="text-xl font-semibold text-black dark:text-white" itemprop="name"></h3>
+            <h3 class="text-xl font-semibold text-black dark:text-white" itemprop="name">{{ project.title }}</h3>
     
             <p class="text-gray-600 dark:text-gray-400">
-                <a x-bind:href="project.href" x-text="project.href" target="_blank" rel="noopener noreferrer" itemprop="url"></a>
+                <a href="{{ project.href }}" target="_blank" rel="noopener noreferrer" itemprop="url">{{ project.href }}</a>
             </p>
 
-            <p x-text="project.description" class="text-gray-700 dark:text-gray-300" itemprop="description"></p>
+            <p class="text-gray-700 dark:text-gray-300" itemprop="description">{{ project.description }}</p>
         </div>
-    </template>
+    {% endfor %}
 </article>
 
 <article itemscope itemtype="http://schema.org/Person">
     <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-        <i class="mr-2 fas fa-envelope"></i> <span x-text="t.cv.contact"></span>
+        <i class="mr-2 fas fa-envelope"></i> <span>{{ t.cv.contact }}</span>
     </h2>
 
     <ul class="text-gray-700 dark:text-gray-300">
-        <li><a x-text="atob('a2V2aW5Ac3ZpdC5hYw==')" x-bind:href="`mailto:${atob('a2V2aW5Ac3ZpdC5hYw==')}`" target="_blank" itemprop="email"></a></li>
+        <li><a itemprop="email" target="_blank" href="mailto:&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;">&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;</a></li>
     </ul>
 </article>
 {% endblock content %}
