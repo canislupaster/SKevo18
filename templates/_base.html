@@ -12,8 +12,7 @@
 
         <link rel="stylesheet" href="./static/compiled.min.css" referrerpolicy="no-referrer"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-        
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.js" integrity="sha512-6pVa1JFPLsAVloI/eZXmbDkCWYVB3Y8ODVA2gVUIowY2laRHAYaYPE1f4KjSvPwNimMmGo4MvteDc3JZEjEikA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
         <script>
             function dark_mode() {
                 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -34,13 +33,9 @@
                 </div>
             </header>
 
-            <div x-data="i18n" class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
-                <template x-if="t !== null">
-                    <main>
-                        {% block content %}{% endblock content %}
-                    </main>
-                </template>
-            </div>
+            <main class="container grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2 flex-grow-main">
+                {% block content %}{% endblock content %}
+            </main>
             
             <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
                 <div class="container py-4 mx-auto">
@@ -50,29 +45,6 @@
         </div>
 
         <script type="text/javascript">
-            async function fetchLangJson() {
-                const lang = new URLSearchParams(window.location.search).get('lang') || navigator.language.split('-', 1)[0];
-
-                response = await fetch(`/static/i18n/${lang}.json`, {method: 'GET'})
-                if (response.status != 200) {
-                    response = await fetch(`/static/i18n/en.json`, {method: 'GET'})
-                }
-
-                document.getElementsByTagName('html')[0].lang = lang;
-                return await response.json();
-            };
-
-
-            window.addEventListener('alpine:init', () => {
-                Alpine.data('i18n', () => ({
-                    async init() {
-                        this.t = await fetchLangJson()
-                    },
-                    t: null
-                }))
-            })
-
-
             window.addEventListener('beforeprint', () => {
                 document.getElementsByTagName('html')[0].classList = '';
             });
