@@ -70,8 +70,13 @@
                 window.location.href = new_path;
             }
 
-            const preferred_language = window.navigator.language.split('-', 1)[0]
-            changeLocale(preferred_language)
+            window.addEventListener('DOMContentLoaded', () => {
+                const preferred_language = window.navigator.language.split('-', 1)[0];
+
+                if (document.getElementsByTagName('html')[0] !== preferred_language) {
+                    changeLocale(preferred_language);
+                };
+            });
         </script>
     </body>
 </html>
