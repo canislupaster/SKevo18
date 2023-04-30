@@ -1,43 +1,45 @@
 {% extends "_base.html" %}
 
 {% block content %}
-{% for section in t.main.sections %}
-    <section>
-        <h2 class="mb-4 text-2xl font-semibold dark:text-white"><a href="/{{ current_locale }}" class="hover:text-yellow-300">{{ section.title }}</a></h2>
-        <p class="mb-4 text-gray-700 dark:text-gray-300">{{ section.text }}</p>
+<div class="grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2"></div>
+    {% for section in t.main.sections %}
+        <section>
+            <h2 class="mb-4 text-2xl font-semibold dark:text-white"><a href="/{{ current_locale }}" class="hover:text-yellow-300">{{ section.title }}</a></h2>
+            <p class="mb-4 text-gray-700 dark:text-gray-300">{{ section.text }}</p>
 
-        <a href="{{ section.href }}" class="px-4 py-2 text-white bg-yellow-600 rounded hover:bg-yellow-700">{{ section.button }}</a>
+            <a href="{{ section.href }}" class="px-4 py-2 text-white bg-yellow-600 rounded hover:bg-yellow-700">{{ section.button }}</a>
+        </section>
+    {% endfor %}
+
+    <section itemscope itemtype="http://schema.org/Person">
+        <h2 class="mb-4 text-xl font-semibold text-black dark:text-white">{{ t.main.connect }}</h2>
+
+        {% set links = [
+            {
+                "icon": "fab fa-github",
+                "text": "GitHub",
+                "href": "https://github.com/SKevo18"
+            },
+            {
+                "icon": "fab fa-instagram",
+                "text": "Instagram",
+                "href": "https://instagram.com/skevo_18"
+            },
+            {
+                "icon": "fab fa-discord",
+                "text": "Discord: Kevo#7590",
+                "href": "#"
+            }
+        ] %}
+        <ul class="grid grid-cols-2 text-gray-700 dark:text-gray-300">
+            {% for link in links %}
+                <li>
+                    <a itemprop="sameAs" href="{{ link['href'] }}" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-400">
+                        <i class="{{ link['icon'] }}"></i> <span>{{ link['text'] }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
     </section>
-{% endfor %}
-
-<section itemscope itemtype="http://schema.org/Person">
-    <h2 class="mb-4 text-xl font-semibold text-black dark:text-white">{{ t.main.connect }}</h2>
-
-    {% set links = [
-        {
-            "icon": "fab fa-github",
-            "text": "GitHub",
-            "href": "https://github.com/SKevo18"
-        },
-        {
-            "icon": "fab fa-instagram",
-            "text": "Instagram",
-            "href": "https://instagram.com/skevo_18"
-        },
-        {
-            "icon": "fab fa-discord",
-            "text": "Discord: Kevo#7590",
-            "href": "#"
-        }
-    ] %}
-    <ul class="grid grid-cols-2 text-gray-700 dark:text-gray-300">
-        {% for link in links %}
-            <li>
-                <a itemprop="sameAs" href="{{ link['href'] }}" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-yellow-600 dark:hover:text-yellow-400">
-                    <i class="{{ link['icon'] }}"></i> <span>{{ link['text'] }}</span>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-</section>
+</div>
 {% endblock content %}
