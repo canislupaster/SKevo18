@@ -73,7 +73,7 @@
             window.addEventListener('DOMContentLoaded', () => {
                 const preferred_language = window.navigator.language.split('-', 1)[0];
 
-                if (document.getElementsByTagName('html')[0] !== preferred_language) {
+                if (document.getElementsByTagName('html')[0].lang !== preferred_language) {
                     changeLocale(preferred_language);
                 };
             });
