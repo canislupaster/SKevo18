@@ -38,18 +38,16 @@
             </main>
             
             <footer class="mt-8 text-white shadow bg-gradient-to-r from-red-500 to-yellow-600">
-                <div class="container py-4 mx-auto mb-4">
+                <div class="container py-4 mx-auto">
                     <p class="text-center">&copy; 2023, Kevin Svitač (AKA. SKevo)</p>
                 </div>
 
-                <div class="mx-auto">
-                    <div class="flex flex-row items-center justify-center gap-2">
-                        {% for country_code, language_code in available_locales.items() %}
-                            <a href="#" onclick="javascript:changeLocale('{{ language_code }}')">
-                                <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/{{ country_code }}.svg" width="20" height="10" alt="{{ language_code|upper }} language">
-                            </a>
-                        {% endfor %}
-                    </div>
+                <div class="flex flex-row items-center justify-center gap-2 mt-2 mb-4">
+                    {% for country_code, language_code in available_locales.items() %}
+                        <a href="#" onclick="javascript:changeLocale('{{ language_code }}')">
+                            <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/{{ country_code }}.svg" width="20" height="10" alt="{{ language_code|upper }} language">
+                        </a>
+                    {% endfor %}
                 </div>
             </footer>
         </div>
