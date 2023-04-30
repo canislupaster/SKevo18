@@ -9,7 +9,7 @@
             {
                 "title": "CV",
                 "text": "Learn more about my experience, education, and skills.",
-                "href": "/cv",
+                "href": "./cv",
                 "button": "View CV"
             },
             {
