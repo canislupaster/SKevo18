@@ -1,7 +1,7 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<div class="grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2"></div>
+<div class="grid grid-cols-1 gap-8 mx-auto my-12 md:grid-cols-2">
     {% for section in t.main.sections %}
         <section>
             <h2 class="mb-4 text-2xl font-semibold dark:text-white"><a href="/{{ current_locale }}" class="hover:text-yellow-300">{{ section.title }}</a></h2>
