@@ -7,22 +7,26 @@
 {% block content %}
 <div class="grid grid-cols-1 mx-auto my-12 gap-y-8 gap-x-32 md:grid-cols-2">
     <article class="mb-8" itemscope itemtype="http://schema.org/Person">
-        <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-            <i class="mr-2 fas fa-user"></i> <span>{{ t.cv.profile }}</span>
-        </h2>
-        <hr class="border-b-2 border-yellow-500"/>
+        <div class="mb-6 space-y-4">
+            <h2 class="flex items-center text-2xl font-semibold text-yellow-500">
+                <i class="mr-2 fas fa-user"></i> <span>{{ t.cv.profile }}</span>
+            </h2>
+            <hr class="border-b-[1px] border-yellow-500"/>
+        </div>
 
         <p class="text-gray-700 dark:text-gray-300" itemprop="description">{{ t.cv.bio }}</p>
     </article>
 
     <article class="mb-8" itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationEvent">
-        <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-            <i class="mr-2 fas fa-graduation-cap"></i> <span>{{ t.cv.educations_title }}</span>
-        </h2>
-        <hr class="border-b-2 border-yellow-500"/>
+        <div class="mb-6 space-y-4">
+            <h2 class="flex items-center text-2xl font-semibold text-yellow-500">
+                <i class="mr-2 fas fa-graduation-cap"></i> <span>{{ t.cv.educations_title }}</span>
+            </h2>
+            <hr class="border-b-[1px] border-yellow-500"/>
+        </div>
 
         {% for education in t.cv.educations %}
-            <a href="{{ education.href }}" target="_blank" class="p-4 mb-6 border-2 border-black dark:border-white">
+            <a href="{{ education.href }}" target="_blank" class="p-4 mb-6">
                 <h3 class="text-xl font-semibold text-black dark:text-white" itemprop="name">{{ education.title }}</h3>
                 <p>
                     <span itemprop="startDate">{{ education.startDate }}</span> - <span itemprop="endDate">{{ education.endDate }}</span>
@@ -36,13 +40,15 @@
     </article>
 
     <article class="mb-8" itemprop="worksFor" itemscope itemtype="http://schema.org/WorkExperience">
-        <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-            <i class="mr-2 fas fa-briefcase"></i> <span>{{ t.cv.experiences_title }}</span>
-        </h2>
-        <hr class="border-b-2 border-yellow-500"/>
+        <div class="mb-6 space-y-4">
+            <h2 class="flex items-center text-2xl font-semibold text-yellow-500">
+                <i class="mr-2 fas fa-briefcase"></i> <span>{{ t.cv.experiences_title }}</span>
+            </h2>
+            <hr class="border-b-[1px] border-yellow-500"/>
+        </div>
 
         {% for experience in t.cv.experiences %}
-            <a href="{{ experience.href }}" target="_blank" class="p-4 mb-6 border-2 border-black dark:border-white">
+            <a href="{{ experience.href }}" target="_blank" class="mb-6">
                 <h3 class="text-xl font-semibold text-black dark:text-white" itemprop="name">{{ experience.title }}</h3>
                 <p class="text-gray-600 dark:text-gray-400">
                     <span itemprop="startDate">{{ experience.startDate }}</span> - <span itemprop="endDate">{{ experience.endDate }}</span>
@@ -58,10 +64,12 @@
     </article>
 
     <article class="mb-8" itemscope itemtype="https://schema.org/Person">
-        <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-            <i class="mr-2 fas fa-tools"></i> <span>{{ t.cv.skills_title }}</span>
-        </h2>
-        <hr class="border-b-2 border-yellow-500"/>
+        <div class="mb-6 space-y-4">
+            <h2 class="flex items-center text-2xl font-semibold text-yellow-500">
+                <i class="mr-2 fas fa-tools"></i> <span>{{ t.cv.skills_title }}</span>
+            </h2>
+            <hr class="border-b-[1px] border-yellow-500"/>
+        </div>
 
         {% set skills_data = {
             "Frontend": [
@@ -95,10 +103,12 @@
     </article>
 
     <article class="mb-8" itemscope itemtype="https://schema.org/SoftwareApplication">
-        <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-            <i class="mr-2 fas fa-project-diagram"></i> <span>{{ t.cv.projects_title }}</span>
-        </h2>
-        <hr class="border-b-2 border-yellow-500"/>
+        <div class="mb-6 space-y-4">
+            <h2 class="flex items-center text-2xl font-semibold text-yellow-500">
+                <i class="mr-2 fas fa-project-diagram"></i> <span>{{ t.cv.projects_title }}</span>
+            </h2>
+            <hr class="border-b-[1px] border-yellow-500"/>
+        </div>
 
         {% for project in t.cv.projects %}
             <div class="mb-4">
@@ -114,9 +124,12 @@
     </article>
 
     <article itemscope itemtype="http://schema.org/Person">
-        <h2 class="flex items-center mb-4 text-2xl font-semibold text-yellow-500">
-            <i class="mr-2 fas fa-envelope"></i> <span>{{ t.cv.contact }}</span>
-        </h2>
+        <div class="mb-6 space-y-4">
+            <h2 class="flex items-center text-2xl font-semibold text-yellow-500">
+                <i class="mr-2 fas fa-envelope"></i> <span>{{ t.cv.contact }}</span>
+            </h2>
+            <hr class="border-b-[1px] border-yellow-500"/>
+        </div>
 
         <ul class="text-gray-700 dark:text-gray-300">
             <li><a itemprop="email" target="_blank" href="mailto:&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;">&#107;&#101;&#118;&#105;&#110;&#64;&#115;&#118;&#105;&#116;&#46;&#97;&#99;</a></li>
