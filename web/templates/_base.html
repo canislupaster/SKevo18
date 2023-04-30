@@ -43,10 +43,10 @@
                 </div>
 
                 <div class="mx-auto">
-                    <div class="flex flex-row items-center justify-center">
+                    <div class="flex flex-row items-center justify-center gap-2">
                         {% for country_code, language_code in available_locales.items() %}
                             <a href="#" onclick="javascript:changeLocale('{{ language_code }}')">
-                                <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/{{ country_code }}.svg" alt="{{ language_code|upper }} language">
+                                <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/{{ country_code }}.svg" width="20" height="10" alt="{{ language_code|upper }} language">
                             </a>
                         {% endfor %}
                     </div>
@@ -69,14 +69,6 @@
                 const new_path = current_path.replace(/\/(en|sk)\//, '/' + new_language + '/');
                 window.location.href = new_path;
             }
-
-            window.addEventListener('DOMContentLoaded', () => {
-                const preferred_language = window.navigator.language.split('-', 1)[0];
-
-                if (document.getElementsByTagName('html')[0].lang !== preferred_language) {
-                    changeLocale(preferred_language);
-                };
-            });
         </script>
     </body>
 </html>
