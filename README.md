@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 <p align="left"><img src="https://github-profile-trophy.vercel.app/?username=skevo18" alt="GitHub achievements of SKevo18" /></p>
 
 - 🔭 I’m currently maintaining [FreeFlarum](https://freeflarum.com)
