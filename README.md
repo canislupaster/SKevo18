@@ -5,7 +5,7 @@
 
 - 👨‍💻 All of my open-source projects are available at [https://github.com/SKevo18?tab=repositories](https://github.com/SKevo18?tab=repositories)
 
-- 📝 I ocassionally write articles on [https://blog.svit.ac](https://blog.svit.ac)
+- 📝 I occassionally write articles on [https://blog.svit.ac](https://blog.svit.ac)
 
 - 📄 My website: [https://kevin.svit.ac/](https://kevin.svit.ac/) ([source code](https://github.com/SKevo18/SKevo18))
 
